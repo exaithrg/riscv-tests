@@ -24,3 +24,8 @@ build/lh.elf:     file format elf32-littleriscv
 80000000 <_start>:
 a0000008:a0000004 <tdat2>:
 问题是，我们不需要匹配数据段。故应避免匹配a开头的行。
+
+inst_cnt v2：
+修改了正则表达式模式为：
+pattern = re.compile(r'^(8[0-9a-f]{7}):\s+([0-9a-f]{4,8})\s+([.\w]+)\s+.*$', re.MULTILINE)
+解决了v1的问题。

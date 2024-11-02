@@ -3,9 +3,8 @@ import re
 
 def collect_instructions(dump_dir):
     # Regular expression to match lines with the specified format
-    pattern = re.compile(r'^\s*([0-9a-f]{8}):\s+([0-9a-f]{4,8})\s+([.\w]+)\s+.*$', re.MULTILINE)
+    pattern = re.compile(r'^(8[0-9a-f]{7}):\s+([0-9a-f]{4,8})\s+([.\w]+)\s+.*$', re.MULTILINE)
 
-    
     # List to store all matched instruction lines
     instructions = []
     
