@@ -1,0 +1,26 @@
+inst_cnt v1：
+当前的a_collect_insts.py使用了如下正则表达式
+pattern = re.compile(r'^\s*([0-9a-f]{8}):\s+([0-9a-f]{4,8})\s+([.\w]+)\s+.*$', re.MULTILINE)
+因此可以匹配如下内容：
+80000398:	01600193          	li	gp,22
+800003a4:	00000013          	nop
+800003ac:	00120213          	addi	tp,tp,1 # 1 <__heap_size-0x1ff>
+800003b8:	01700393          	li	t2,23
+800003bc:	04771c63          	bne	a4,t2,80000414 <fail>
+80000444:	c0001073          	unimp
+80000448:	0000                	.insn	2, 0x
+8000044a:	0000                	.insn	2, 0x
+80000440:	00000073          	ecall
+80000430:	0ff0000f          	fence.i
+8000044c:	0000                	.insn	2, 0x
+a0000000:	00ff    	.insn	10, 0xf00f0ff0ff0000ff
+800002d0:	d3668693          	addi	a3,a3,-714 # a0000002 <tdat2>
+a0000006:	0000f00f          	.insn	4, 0xf00f
+可以避免匹配到如下内容：
+a0000002 <tdat2>:
+800002c4 <test_12>:
+a0000008:	 
+build/lh.elf:     file format elf32-littleriscv
+80000000 <_start>:
+a0000008:a0000004 <tdat2>:
+问题是，我们不需要匹配数据段。故应避免匹配a开头的行。
