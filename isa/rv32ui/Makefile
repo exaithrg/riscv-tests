@@ -20,7 +20,7 @@ CHMOD = chmod
 CFLAGS = -march=rv32g -mabi=ilp32 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles
 LDFLAGS = -m elf32lriscv -T $(LINKER_SCRIPT) -nostdlib
 INCLUDE_DIRS = -I$(SRC_DIR)/../../env/p -I$(SRC_DIR)/../macros/scalar
-LINKER_SCRIPT = $(SRC_DIR)/../../env/p/link.ld
+LINKER_SCRIPT = $(SRC_DIR)/../../env/r529/r529.ld
 
 # Source and include paths
 SRC_DIR := .
