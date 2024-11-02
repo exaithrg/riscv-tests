@@ -36,3 +36,5 @@ inst_cnt v3：
 inst_cnt v4：
 单独抽出了csr指令，尚未合并
 
+inst_cnt v5：
+统计并合并了需支持的csr指令

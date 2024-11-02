@@ -19,7 +19,7 @@ def extract_csr_instructions(input_file, output_file):
 
 # Input and output file names
 input_file = 'collected_insts.txt'
-output_file = 'csr_insts.txt'
+output_file = 'collected_csr_insts.txt'
 
 # Call the function to extract CSR instructions
 extract_csr_instructions(input_file, output_file)
