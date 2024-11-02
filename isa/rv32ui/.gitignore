@@ -1,1 +1,6 @@
-build/
+# See .gitignore in riscv-tests folder
+# !isa/rv32ui/build/*.dump
+# !isa/rv32ui/verilog/*.hex
+
+*.elf
+*.o

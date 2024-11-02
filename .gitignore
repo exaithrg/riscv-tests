@@ -11,3 +11,6 @@
 /config.log
 /config.status
 /build
+
+!isa/rv32ui/build/*.dump
+!isa/rv32ui/verilog/*.hex
