@@ -1,1 +1,3 @@
 241102: fork riscv-tests and add -g to isa compile
+test: Use this as submodules
+
