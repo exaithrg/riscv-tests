@@ -1,0 +1,25 @@
+Terminal 1:
+cd riscv_tests_collection/riscv-tests/isa/rv32ui/build
+qemu-system-riscv32 -nographic -bios none -kernel add.elf -S -s
+
+After this, open a new Terminal 2:
+cd riscv_tests_collection/riscv-tests/isa/rv32ui/build
+riscv64-unknown-elf-gdb ./add.elf
+(gdb) target remote :1234
+(gdb) l
+(gdb) b 14
+(gdb) b 76
+(gdb) c
+(gdb) si
+(gdb) disass
+(gdb) c
+(gdb) disass
+(gdb) si
+(gdb) disass
+...
+Dump of assembler code for function ****pass****:
+=> 0x80000688 <+0>:     fence
+   0x8000068c <+4>:     li      gp,1
+   0x80000690 <+8>:     li      a7,93
+   0x80000694 <+12>:    li      a0,0
+(gdb) exit
