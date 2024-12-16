@@ -64,14 +64,18 @@ $(DUMP_FILES): $(BUILD_DIR)/%.dump: $(BUILD_DIR)/%.elf
 # Rule to generate text hex files from ELF files
 $(VERILOG_DIR)/%.text.hex: $(BUILD_DIR)/%.elf
 	$(RISCV_OBJCOPY) -O verilog --only-section .text $< $@
-	$(SED) -i 's/@800/@000/g' $@
-	@echo "Address @80000000 replaced with @00000000 in $@"
+	# $(SED) -i 's/@800/@000/g' $@
+	# @echo "Address @80000000 replaced with @00000000 in $@"
+	$(SED) -i 's/@000/@000/g' $@
+	@echo "Address @00000000 replaced with @00000000 in $@"
 
 # Rule to generate data hex files from ELF files
 $(VERILOG_DIR)/%.data.hex: $(BUILD_DIR)/%.elf
 	$(RISCV_OBJCOPY) -O verilog --only-section .data $< $@
-	$(SED) -i 's/@A00/@000/g' $@
-	@echo "Address @A0000000 replaced with @00000000 in $@"
+	# $(SED) -i 's/@A00/@000/g' $@
+	# @echo "Address @A0000000 replaced with @00000000 in $@"
+	$(SED) -i 's/@001/@000/g' $@
+	@echo "Address @00100000 replaced with @00000000 in $@"
 
 # Clean up
 clean:
